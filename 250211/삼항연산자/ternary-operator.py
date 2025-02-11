@@ -1,2 +1,3 @@
-score=input()
-score="pass" if(score=100) else "failure"
+score=int(input())
+result="pass" if score==100 else "failure"
+print(result)
