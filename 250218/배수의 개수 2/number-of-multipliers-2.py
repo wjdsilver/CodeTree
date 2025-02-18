@@ -1,6 +1,6 @@
 cnt=0
-for i in range (11):
-    n=int(input())
-    if n%2==1:
+for _ in range (10):
+    a= int(input())
+    if a%2==1:
         cnt+=1
 print(cnt)
