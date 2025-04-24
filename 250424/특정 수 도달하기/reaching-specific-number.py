@@ -4,12 +4,11 @@ sum_val=0
 cnt=0
 
 for i in range (n):
-    if i==10:
-        print(f"{sum_val} {sum_val/cnt:.1f}")
-    else:
-        if arr[i]<250:
+    if arr[i]<250:
             sum_val+=arr[i]
             cnt+=1
-        elif arr[i]>=250:
-            print(f"{sum_val} {sum_val/cnt:.1f}")
-            break
+            if i==9:
+                print(f"{sum_val} {sum_val/cnt:.1f}")
+    elif arr[i]>=250:
+        print(f"{sum_val} {sum_val/cnt:.1f}")
+        break
