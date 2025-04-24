@@ -8,5 +8,5 @@ for i in range (n):
         sum_val+=arr[i]
         cnt+=1
     elif arr[i]>=250:
-        print(sum_val,sum_val/cnt)
+        print(f"{sum_val} {sum_val/cnt:.1f}")
         break
