@@ -1,3 +1,3 @@
-a="c"
-a="t"
+a="C"
+a="T"
 print(a)
