@@ -1,14 +1,13 @@
 arr = list(map(int, input().split()))
 
-for i in range(len(arr)):
-    if arr[i]==0:
-        arr.pop()
-    else:
-        i=len(arr)
-        pass
+result = []
 
-for j in range (i):
-        if arr[j]%2==0:
-            print(arr[j]//2,end=" ")
-        elif arr[j]%2==1:
-            print(arr[j]+3,end=" ")
+for i in arr:
+    if i==0:
+        break
+    if i % 2 == 0:
+        result.append(i // 2)
+    else:
+        result.append(i + 3)
+        
+print(*result)
