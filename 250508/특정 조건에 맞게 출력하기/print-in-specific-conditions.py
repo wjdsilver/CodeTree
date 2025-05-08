@@ -4,6 +4,7 @@ for i in range(len(arr)):
     if arr[i]==0:
         arr.pop()
     else:
+        i=len(arr)
         pass
 
 for j in range (i):
