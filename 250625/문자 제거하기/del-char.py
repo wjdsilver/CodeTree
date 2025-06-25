@@ -1,5 +1,6 @@
 A=list(input())
-for i in range(len(A)-1):
+R=len(A)-1
+for i in range(R):
     n=int(input())
     if n>len(A):
         A.pop(-1)
