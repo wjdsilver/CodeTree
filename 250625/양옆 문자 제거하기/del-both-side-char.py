@@ -1,4 +1,4 @@
 A=input()
-ans=A[:2]+A[3:]
-ans=ans[:(len(ans)-2)]+ans[len(ans)-1:]
+ans=A[:1]+A[2:]
+ans=ans[:(len(ans)-2)]+ans[(len(ans)-1):]
 print(ans)
