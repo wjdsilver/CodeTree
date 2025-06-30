@@ -1,8 +1,8 @@
 def threes(n):
     result=False
-    for i in range(1,7):
-        if n%(10^i)==3 or n%(10^i)==6 or n%(10^i)==9:
-            result=True
+    n=str(n)
+    if "3" in n or "6" in n or "9" in n:
+        result=True
     return result
 
 a, b = map(int, input().split())
