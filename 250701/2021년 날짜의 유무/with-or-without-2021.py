@@ -20,12 +20,15 @@ def M31(D):
 
 
 M, D = map(int, input().split())
-if M==2:
-    result=feb(D)
-elif M==4 or M==6 or M==9 or M==11:
-    result=M30(D)
+if M<=12:
+    if M==2:
+        result=feb(D)
+    elif M==4 or M==6 or M==9 or M==11:
+        result=M30(D)
+    else:
+        result=M31(D)
 else:
-    result=M31(D)
+    result=False
 
 if result==True:
     print("Yes")
