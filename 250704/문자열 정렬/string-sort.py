@@ -1,0 +1,5 @@
+S = input()
+S =list(S)
+S.sort()
+answer=''.join(S)
+print(answer)
