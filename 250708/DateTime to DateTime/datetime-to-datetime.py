@@ -1,6 +1,3 @@
-a, b, c = map(int, input().split())
-
-
 def Count(d,t,m):
     result=0
     result+=d*24*60
@@ -8,4 +5,8 @@ def Count(d,t,m):
     result+=m
     return result
 
-print(Count(a,b,c)-Count(11,11,11))
+a, b, c = map(int, input().split())
+if a>=11 and b>=11 and c>=11:
+    print(Count(a,b,c)-Count(11,11,11))
+else:
+    print("-1")
