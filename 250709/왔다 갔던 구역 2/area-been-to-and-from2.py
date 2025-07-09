@@ -8,7 +8,7 @@ for _ in range(n):
     x=int(x)
 
     if di=="L":
-        for j in range(cur-x+1,cur+1):
+        for j in range(cur-x,cur):
             arr[j]+=1
         cur=cur-x
     elif di=="R":
