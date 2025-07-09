@@ -16,7 +16,7 @@ for _ in range(n):
             arr[j]+=1
         cur=cur+x
 
-for i in range(2000):
+for i in range(2001):
     if arr[i]>1:
         ans+=1
 print(ans)
