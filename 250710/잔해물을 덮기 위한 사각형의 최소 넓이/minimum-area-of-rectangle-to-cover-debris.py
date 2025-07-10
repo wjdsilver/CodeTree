@@ -25,4 +25,9 @@ for i in range(2001):
             minX = min(minX, i)
             maxY = max(maxY, j)
             minY = min(minY, j)
-print((maxX-minX+1)*(maxY-minY+1))
+if maxX == -1:
+    print(0)
+elif maxY == -1:
+    print(0)
+else:
+    print((maxX-minX+1)*(maxY-minY+1))
