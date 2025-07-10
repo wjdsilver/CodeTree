@@ -10,6 +10,7 @@ for i in range(1,n):
             ans=cnt
         cnt=1
 if ans<cnt:
+    cnt+=1
     print(cnt)
 else:
     print(ans)
