@@ -9,4 +9,7 @@ for i in range(1,n):
         if ans<cnt:
             ans=cnt
         cnt=1
-print(ans)
+if ans<cnt:
+    print(cnt)
+else:
+    print(ans)
