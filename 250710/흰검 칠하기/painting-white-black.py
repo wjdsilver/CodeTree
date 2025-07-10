@@ -1,48 +1,43 @@
 n = int(input())
-g=[0]*200001 #w면1 b면2 g면 3
-w=[0]*200001
-b=[0]*200001
-cur=100000
-wn,bn,gn=0,0,0
+WHITE, BLACK, GRAY = 1, 2, 3
+size = 200001
+offset = 100000
+
+# 각 색 횟수 카운트 배열
+white = [0] * size
+black = [0] * size
+color = [0] * size  # 현재 타일 상태 (1=흰, 2=검, 3=회)
+
+cur = offset
 
 for _ in range(n):
-    x, di = input().split()
-    x=int(x)
+    x, d = input().split()
+    x = int(x)
 
-    if di=="L":
-        for j in range(cur-x+1,cur+1):
-            if g[j]==3:
+    if d == "L":
+        for i in range(cur, cur - x, -1):
+            if color[i] == GRAY:
                 continue
-            else:
-                if w[j]==0:
-                    w[j]=1
-                    g[j]=1
-                elif w[j]==1:
-                    if b[j]>=2:
-                        g[j]=3
-                    else:
-                        w[j]=2
-        cur=cur-x+1
-    elif di=="R":
-        for j in range(cur,cur+x):
-            if g[j]==3:
+            white[i] += 1
+            if white[i] >= 2 and black[i] >= 2:
+                color[i] = GRAY
+            elif color[i] != BLACK:
+                color[i] = WHITE
+        cur = cur - x
+    else:  # "R"
+        for i in range(cur, cur + x):
+            if color[i] == GRAY:
                 continue
-            else:
-                if b[j]==0:
-                    b[j]=1
-                    g[j]=2
-                elif b[j]==1:
-                    if w[j]>=2:
-                        g[j]=3
-                    else:
-                        b[j]=2
-        cur=cur+x-1
+            black[i] += 1
+            if white[i] >= 2 and black[i] >= 2:
+                color[i] = GRAY
+            elif color[i] != WHITE:
+                color[i] = BLACK
+        cur = cur + x - 1
 
-for i in range(200001):
-    if g[i]==1:
-        wn+=1
-    elif g[i]==2:
-        bn+=1
-    elif g[i]==3:
-        gn+=1
-print(wn,bn,gn)
+# 최종 색상 카운트
+w = color.count(WHITE)
+b = color.count(BLACK)
+g = color.count(GRAY)
+
+print(w, b, g)
