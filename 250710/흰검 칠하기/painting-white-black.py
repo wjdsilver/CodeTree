@@ -22,7 +22,6 @@ for _ in range(n):
                         g[j]=3
                     else:
                         w[j]=2
-                        g[j]=1
         cur=cur-x+1
     elif di=="R":
         for j in range(cur,cur+x):
@@ -37,7 +36,6 @@ for _ in range(n):
                         g[j]=3
                     else:
                         b[j]=2
-                        g[j]=2
         cur=cur+x-1
 
 for i in range(200001):
