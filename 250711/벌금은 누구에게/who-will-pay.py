@@ -5,7 +5,8 @@ ans=-1
 for s in range(M):
     s=int(input())
     arr[s]+=1
-for i in range(N):
+
+for i in range(1,N+1):
     if arr[i]==K:
         ans=i
         break
