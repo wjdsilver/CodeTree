@@ -1,33 +1,55 @@
-MAX_T = 200000
-A_path = [-1] * (MAX_T + 1)
-B_path = [-1] * (MAX_T + 1)
+n, m = tuple(map(int, input().split()))
 
-def simulate(commands, path):
-    cur = 1000
-    t = 0
-    for d, sec in commands:
-        sec = int(sec)
-        for _ in range(sec):
-            t += 1
-            if d == 'L':
-                cur -= 1
-            else:
-                cur += 1
-            path[t] = cur
+a_arr = [
+    tuple(input().split())
+    for _ in range(n)
+]
 
+b_arr = [
+    tuple(input().split())
+    for _ in range(m)
+]
 
-n, m = map(int, input().split())
-A_cmd = [input().split() for _ in range(n)]
-B_cmd = [input().split() for _ in range(m)]
+a_ans = []
+a_start_idx = 0
 
+for d, t in a_arr:
+    t = int(t)
+    if d == 'R':
+        while t > 0:
+            a_start_idx += 1
+            t-= 1
+            a_ans.append(a_start_idx)
+    
+    else:
+        while t > 0:
+            a_start_idx -= 1
+            t -= 1
+            a_ans.append(a_start_idx)
 
-simulate(A_cmd, A_path)
-simulate(B_cmd, B_path)
+b_ans = []
+b_start_idx = 0
 
+for d, t in b_arr:
+    t = int(t)
+    if d == 'R':
+        while t > 0:
+            b_start_idx += 1
+            t -= 1
+            b_ans.append(b_start_idx)
+    
+    else:
+        while t > 0:
+            b_start_idx -= 1
+            t -= 1
+            b_ans.append(b_start_idx)
 
-for t in range(1, MAX_T + 1):
-    if A_path[t] != -1 and A_path[t] == B_path[t]:
-        print(t)
+ans = 0
+for i in range(max(len(a_ans), len(b_ans))):
+    if a_ans[i] == b_ans[i]:
+        ans = i+1
+        print(ans)
         break
-else:
-    print(-1)
+    if i == max(len(a_ans), len(b_ans)) - 1:
+        print(-1)
+
