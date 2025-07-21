@@ -21,7 +21,7 @@ for h in hands:
         if not ans[y]:
             ans[y]=1
         cnt[x]+=1
-    elif ans[y]==1 and cnt[y]<K:
+    if ans[y]==1 and cnt[y]<K:
         if not ans[x]:
             ans[x]=1
         cnt[y]+=1
