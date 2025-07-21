@@ -17,14 +17,21 @@ hands.sort(key=lambda x:x.t)
 ans[P]=1
 for h in hands:
     x,y=h.x,h.y
-    if ans[x]==1 and cnt[x]<K:
+    if ans[x]==1 and cnt[x]<K and ans[y]==1 and cnt[y]<K:
+        if not ans[x] and not ans[y]:
+            ans[x]=1
+            ans[y]=1
+        cnt[x]+=1
+        cnt[y]+=1
+    elif ans[x]==1 and cnt[x]<K:
         if not ans[y]:
             ans[y]=1
         cnt[x]+=1
-    if ans[y]==1 and cnt[y]<K:
+    elif ans[y]==1 and cnt[y]<K:
         if not ans[x]:
             ans[x]=1
         cnt[y]+=1
+
 
 for i in range (1,N+1):
     print(ans[i],end="")
