@@ -8,13 +8,6 @@ x,y=0,0
 move_dir = 0
 dxs, dys = [0, 1, 0, -1], [1, 0, -1, 0]
 
-mapper = {
-    'N': 0,
-    'E': 1,
-    'W': 2,
-    'S': 3
-}
-
 
 for w in arr:
     if w=="L":
