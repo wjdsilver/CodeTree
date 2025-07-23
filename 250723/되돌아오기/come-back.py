@@ -1,3 +1,4 @@
+import sys
 N = int(input())
 
 t=0
@@ -22,9 +23,10 @@ for i in range(N):
         x,y=x+dxs[move_dir],y+dys[move_dir]
         t+=1
         if x==0 and y==0:
-            ans=t
-            break
+            print(t)
+            sys.exit()
+            
         
-print(ans)
+print(-1)
 
     
