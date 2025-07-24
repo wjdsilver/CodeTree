@@ -21,7 +21,7 @@ def findStartPoint(k):
         x,y=(3*n-1-k)%n,n-1
         d=3
     elif k//n==3:
-        x,y=n-1,(4*n-1-k)%n
+        x,y=0,(4*n-1-k)%n
         d=0
     return x,y,d
 
