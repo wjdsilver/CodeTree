@@ -26,5 +26,6 @@ while cnt < n*n:
                 sys.exit() 
         d = (d + 1) % 4 
     step += 1
-        
+if n==1:
+    print(1)
 
