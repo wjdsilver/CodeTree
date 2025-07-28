@@ -11,7 +11,7 @@ for i in range(n-2):
             c=arr[k]
             ans=a+b+c
             notcarry=True
-            while a+b>=10 or b+c>=10 or c+a>=10:
+            while a+b+c>=10:
                 if a%10+b%10+c%10>=10:
                     notcarry=False
                     break
