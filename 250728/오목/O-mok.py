@@ -1,4 +1,5 @@
 board = [list(map(int, input().split())) for _ in range(19)]
+found=False
 
 def omokX(i,j):
     cnt=0
@@ -44,17 +45,23 @@ for i in range(15):
         if board[i][j]!=0:
             result=omokX(i,j)
             if result:
+                found=True
                 print(result[0])
                 print(result[1],result[2])
             result=omokY(i,j)
             if result:
+                found=True
                 print(result[0])
                 print(result[1],result[2])
             result=omokXY(i,j)
             if result:
+                found=True
                 print(result[0])
                 print(result[1],result[2])
             result=omokYX(i,j)
             if result:
+                found=True
                 print(result[0])
                 print(result[1],result[2])
+if not found:
+    print(0)
