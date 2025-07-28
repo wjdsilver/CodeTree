@@ -1,6 +1,6 @@
 n = int(input())
 arr = [int(input()) for _ in range(n)]
-fin=0
+fin=-1
 ans=0
 
 for i in range(n-2):
@@ -12,7 +12,7 @@ for i in range(n-2):
             ans=a+b+c
             notcarry=True
             while a+b>=10 or b+c>=10 or c+a>=10:
-                if a%10+b%10+c%10>10:
+                if a%10+b%10+c%10>=10:
                     notcarry=False
                     break
                 a//=10
