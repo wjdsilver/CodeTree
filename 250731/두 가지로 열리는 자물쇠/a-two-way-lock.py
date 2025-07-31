@@ -1,32 +1,35 @@
 N = int(input())
 a1, b1, c1 = map(int, input().split())
 a2, b2, c2 = map(int, input().split())
-dial1=[]
-dial2=[]
-dial3=[]
-
-for i in range(N):
-    dial1.append(i)
-    dial2.append(i)
-    dial3.append(i)
-
-def del_dial(dial,x):
+dial1=[0]*(N+1)
+dial2=[0]*(N+1)
+dial3=[0]*(N+1)
+cnt1,cnt2,cnt3=0,0,0
+def add_dial(dial,x):
     for y in ((x-2+N)%N,(x-1+N)%N,(x+N)%N,(x+1+N)%N,(x+2+N)%N):
-        if y in dial:
-            dial.remove(y)
-        else:
-            continue
+        dial[y]+=1
 
 for x in (a1,b1,c1,a2,b2,c2):
     if x==a1 or x==a2:
-        del_dial(dial1,x)
+        add_dial(dial1,x)
     elif x==b1 or x==b2:
-        del_dial(dial2,x)
+        add_dial(dial2,x)
     elif x==c1 or x==c2:
-        del_dial(dial3,x)
-
-print(5**3*2-len(dial1)*len(dial2)*len(dial3))
-
+        add_dial(dial3,x)
+    
+for i in (dial1):
+    if i==2:
+        cnt1+=1
+for i in (dial2):
+    if i==2:
+        cnt2+=1
+for i in (dial3):
+    if i==2:
+        cnt3+=1
+for j in (cnt1,cnt2,cnt3):
+    if j==0:
+        j=1
+print(5**3*2-cnt1*cnt2*cnt3)
 
 
 
