@@ -14,10 +14,10 @@ for n in range(100,1000):
         arr.append(str(n))
 
 for n in arr:
+    ok=True
     for m in range(len(a)):
         cnt1=0
         cnt2=0
-        ok=True
         for i in range(3):
             if n[i]==a[m][i]:
                 cnt1+=1
