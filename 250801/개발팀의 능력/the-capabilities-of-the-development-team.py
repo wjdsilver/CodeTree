@@ -14,5 +14,8 @@ for i in arr:
                     M=max(team1,team2,team3)
                     m=min(team1,team2,team3)
                     ans=min(ans,M-m)
-print(ans)
+if ans<1000:
+    print(ans)
+else: 
+    print(-1)
         
