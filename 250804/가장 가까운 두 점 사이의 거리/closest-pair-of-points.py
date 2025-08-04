@@ -7,6 +7,6 @@ ans=sys.maxsize
 
 for i in range (n-1):
     for j in range(i+1,n):
-        result=((abs(x[i]-x[j]))**2+(abs(y[i]-y[j]))**2)
-    ans=min(ans,result)
+        result=(x[i]-x[j])**2+(y[i]-y[j])**2
+        ans=min(ans,result)
 print(ans)
