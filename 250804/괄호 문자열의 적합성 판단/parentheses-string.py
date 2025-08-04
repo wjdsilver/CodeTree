@@ -1,17 +1,44 @@
 str = input()
 
+class Stack:
+    def __init__(self):
+        self.items = []
+                
+    def push(self, item):
+        self.items.append(item)
+                
+    def empty(self):
+        return not self.items
+                
+    def size(self):
+        return len(self.items)
+        
+    def pop(self):
+        if self.empty():
+            raise Exception("Stack is empty")
+            
+        return self.items.pop()
+                
+    def top(self):
+        if self.empty():
+            raise Exception("Stack is empty")
+                        
+        return self.items[-1]
 
-def solution(str):
-    s = empty stack
-    for i in range(str.size):
-        if str[i] == '(' :
+
+def solution(x):
+    s = Stack()
+    for i in range(len(x)):
+        if x[i] == '(' :
             s.push('(')
             
-    else:
-        if s.empty() == true:
-            return false
-        s.pop()
+        else:
+            if s.empty() == True:
+                return False
+            s.pop()
 
-    if s.empty() == false:
-        return false
-    return true
+    if s.empty() == False:
+        return False
+    return True
+
+print("Yes" if solution(str) else "No")
