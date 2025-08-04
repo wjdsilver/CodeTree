@@ -1,14 +1,18 @@
 n = int(input())
 lines = [tuple(map(int, input().split())) for _ in range(n)]
-lines.sort()
 cnt=0
 
-for i in range(1,n-1):
-    if lines[i-1][0]<lines[i][0] and lines[i-1][1]<lines[i][1]:
-        if lines[i][0]<lines[i+1][0] and lines[i][1]<lines[i+1][1]:
-            cnt+=1
-if lines[0][0]<lines[1][0] and lines[0][1]<lines[1][1]:
-    cnt+=1
-if lines[n-2][0]<lines[n-1][0] and lines[n-2][1]<lines[n-1][1]:
-    cnt+=1
+for i in range(n):
+    x1, y1 = lines[i]
+    inter= False
+    for j in range(n):
+        if i == j:
+            continue
+        x2, y2 = lines[j]
+        if (x1 < x2 and y1 > y2) or (x1 > x2 and y1 < y2):
+            inter = True
+            break
+    if not inter:
+        cnt += 1
+
 print(cnt)
