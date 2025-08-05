@@ -1,6 +1,6 @@
 N, B = map(int, input().split())
 gifts = [tuple(map(int, input().split())) for _ in range(N)]
-gifts.sort()
+gifts.sort(key=lambda x:x[0]+x[1])
 
 ans=0
 
