@@ -1,6 +1,6 @@
 N, K = map(int, input().split())
 num = [int(input()) for _ in range(N)]
-fin = 0
+fin = -1
 
 for i in range(N):
     for j in range(i + 1, min(N, i + K + 1)):
