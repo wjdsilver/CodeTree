@@ -18,5 +18,7 @@ for i in range(N):
         else:
             break
     ans = max(ans, count)
-
-print(ans)
+if ans!=0:
+    print(ans)
+else:
+    print(1)
