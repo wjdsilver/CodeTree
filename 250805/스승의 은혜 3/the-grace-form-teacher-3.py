@@ -1,13 +1,19 @@
 N, B = map(int, input().split())
 gifts = [tuple(map(int, input().split())) for _ in range(N)]
-gifts.sort(key=lambda x:x[0]+x[1])
+
 
 ans=0
 
 for i in range(N):
-    cost = [g[0] for g in gifts]
-    deliver = [g[1] for g in gifts]
-    cost[i] //= 2
+    discounted = []
+    for j in range(N):
+        if i == j:
+            discounted.append((gifts[j][0] // 2, gifts[j][1]))
+        else:
+            discounted.append(gifts[j])
+    discounted.sort(key=lambda x:x[0]+x[1])
+    cost = [g[0] for g in discounted]
+    deliver = [g[1] for g in discounted]
 
     total = 0
     count = 0
