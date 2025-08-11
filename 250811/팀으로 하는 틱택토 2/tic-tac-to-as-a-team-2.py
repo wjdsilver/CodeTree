@@ -22,13 +22,15 @@ for i in range(1,10):
             if inp[0][0]==i:
                 if inp[1][1]==i and inp[2][2]==j:
                     TTT=True
-                if inp[1][1]==j and inp[2][2]==i:
-                    TTT=True
+                if inp[1][1]==j:
+                    if inp[2][2]==i or inp[2][2]==j:
+                        TTT=True
             if inp[0][2]==i:
                 if inp[1][1]==i and inp[2][0]==j:
                     TTT=True
-                if inp[1][1]==j and inp[2][0]==i:
-                    TTT=True
+                if inp[1][1]==j:
+                    if inp[2][0]==i or inp[2][0]==j:
+                        TTT=True
             if TTT==True:
                 cnt+=1
 print(cnt)
