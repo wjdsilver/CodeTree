@@ -2,7 +2,7 @@ n, k = map(int, input().split())
 arr = list(map(int, input().split()))
 
 
-def is_possible(x):
+def is_possible(x):#x가 최소인 최대값일때
     available_indices = []
     for i, elem in enumerate(arr):
         if elem <= x:
@@ -13,10 +13,11 @@ def is_possible(x):
         dist = available_indices[i] - available_indices[i - 1]
         if dist > k:
             return False
-        if arr[-1] not in available_indices:
-            return False
+    if len(available_indices) == 0 or available_indices[-1] != len(arr) - 1:
+        return False
 
-    return True
+    else:
+        return True
 
 
 minimax = n+1
