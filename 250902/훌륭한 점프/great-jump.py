@@ -3,25 +3,21 @@ arr = list(map(int, input().split()))
 
 
 def is_possible(x):#x가 최소인 최대값일때
-    available_indices = []
-    for i, elem in enumerate(arr):
-        if elem <= x:
-            available_indices.append(i)
+    if arr[0] > x:# 시작 돌도 <= x
+        return False
+    available_indices = [i for i, elem in enumerate(arr) if elem <= x]
 
-    arr_size = len(available_indices)
-    for i in range(1, arr_size):
-        dist = available_indices[i] - available_indices[i - 1]
-        if dist > k:
-            return False
-    if len(available_indices) == 0 or available_indices[-1] != len(arr) - 1:
+    if not available_indices or available_indices[-1] != len(arr)-1:
         return False
 
-    else:
-        return True
+    for i in range(1, len(available_indices)):
+        if available_indices[i] - available_indices[i - 1] > k:
+            return False
+    return True
 
 
-minimax = n+1
-for a in range(n,1,-1):
+minimax = max(arr)
+for a in range(max(arr),1,-1):
     if is_possible(a):
         minimax = min(minimax, a)
 
