@@ -3,9 +3,9 @@ seat = input()
 fin=0
 
 for i in range(N-1):
-    nseat=list(seat)
-    Nseat=[]
-    for j in range(i,N):
+    for j in range(i+1,N):
+        nseat=list(seat)
+        Nseat=[]
         if seat[i]=="0" and seat[j]=="0":
             nseat[i]="1"
             nseat[j]="1"
@@ -14,8 +14,8 @@ for i in range(N-1):
                 if elem=="1":
                     Nseat.append(n)
                     
-            for j in range(len(Nseat)-1):
-                ans=Nseat[j+1]-Nseat[j]
+            for x in range(len(Nseat)-1):
+                ans=Nseat[x+1]-Nseat[x]
                 mini=min(ans,mini)
             fin=max(fin,mini)
 print(fin)
