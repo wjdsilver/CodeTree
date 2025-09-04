@@ -15,8 +15,9 @@ for i in range(1,max(num)+1):
             break
 
     if valid:
-        if num.count(ans)<=num.count(i):
-            ans = i
+        if num.count(i)>=2:
+            if num.count(ans)<=num.count(i):
+                ans = i
         
 print(ans)
         
