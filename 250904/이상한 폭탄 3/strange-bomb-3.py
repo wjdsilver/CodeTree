@@ -7,7 +7,7 @@ for i in range(1,max(num)+1):
         if elem==i:
             new_arr.append(n)
     valid = True
-    for j in range(1, len(new_arr)):
+    for j in range(2, len(new_arr)-1):
         if new_arr[j] - new_arr[j-1] <= K or new_arr[j+1]-new_arr[j]<=K:
             continue
         else:
