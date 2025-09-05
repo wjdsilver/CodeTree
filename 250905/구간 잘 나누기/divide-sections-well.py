@@ -14,6 +14,6 @@ for x in range(max(a),sum(a)):#구간 합 기준?
             tmp+=n
     if tmp!=0:
         arr.append(tmp) 
-    if len(arr)==M:
+    if len(arr)<=M:
         fin=min(max(arr),fin)
 print(fin)
