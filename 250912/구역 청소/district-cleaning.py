@@ -6,6 +6,8 @@ finish=max(b,d)
 
 if b<c and a<d:
     ans=b+d-a-c
+elif b>c and a>d:
+    ans=b+d-a-c
 else:
     ans=finish-start
 print(ans)
