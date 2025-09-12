@@ -9,9 +9,9 @@ newX2=[]
 ans=False
 
 for i in range(n):
-    newX1=x1[:i]+x1[i:]
-    newX2=x2[:i]+x2[i:]
-    if max(newX1)>=min(newX2):
+    newX1=x1[:i]+x1[i+1:]
+    newX2=x2[:i]+x2[i+1:]
+    if max(newX1)<=min(newX2):
         ans=True
 
 if ans==False:
