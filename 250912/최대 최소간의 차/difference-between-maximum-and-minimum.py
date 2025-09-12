@@ -1,6 +1,6 @@
 n, k = map(int, input().split())
 arr = list(map(int, input().split()))
-fin=max(arr)
+fin=max(arr)*n
 
 for i in range(min(arr),max(arr)):#최소
     cost=0
