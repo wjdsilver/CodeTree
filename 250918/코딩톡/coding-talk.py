@@ -7,5 +7,8 @@ ppl=[(0)for _ in range(n)]
 for i in range(p,m):
     ppl[ord(c[i])-ord('A')]=1
 for j in range(n):
-    if ppl[j]==0:
-        print(chr(j+ord("A")),end=" ")
+    if ppl.count(0)>=u[p]:
+        if u[p]==0:
+            break
+        if ppl[j]==0:
+            print(chr(j+ord("A")),end=" ")
