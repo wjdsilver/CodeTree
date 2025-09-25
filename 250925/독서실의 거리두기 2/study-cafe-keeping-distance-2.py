@@ -4,12 +4,14 @@ seat_candidate=[0]*N
 ans=N
 first,last=0,0
 temp=0
+cnt=0
 
 for i in range(N):
     if seats[i]=="1":
-        temp=i
-        if seat_candidate[0]==0:
+        if cnt==0 and seats[0]=="0":
             first=i
+            cnt+=1
+        temp=i
         for j in range(i+1,N):
             if seats[j]=="1":
                 seat_candidate[i]=j-i#seat_candidate에 다음 1까지의 거리 저장
