@@ -18,4 +18,7 @@ for j in range(len(board[rr])):
     if "R" in board[rr][j]:
         rc=j
 
-print(abs(lr-br)+abs(lc-bc)-1)
+if (br==lr==rr and (bc>rc>lc or bc<rc<lc)) or (bc==lc==rc and (br<rr<lr or br>rr>lr)):
+    print(abs(lr-br)+abs(lc-bc)+1)
+else:
+    print(abs(lr-br)+abs(lc-bc)-1)
