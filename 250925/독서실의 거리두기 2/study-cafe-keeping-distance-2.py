@@ -8,7 +8,7 @@ temp=0
 for i in range(N):
     if seats[i]=="1":
         temp=i
-        if seat_candidate[0]=="0":
+        if seat_candidate[0]==0:
             first=i
         for j in range(i+1,N):
             if seats[j]=="1":
