@@ -1,5 +1,6 @@
 n = int(input())
 arr = sorted(list(map(int, input().split())))
+new_arr=[]
 
 ppp=arr[n-1]*arr[n-2]*arr[n-3] #셋다 양수
 pnn=arr[0]*arr[1]*arr[n-1] #하나양수 두개 절대값큰음수
