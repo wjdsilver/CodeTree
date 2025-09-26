@@ -15,4 +15,7 @@ else:
     new_arr.sort()
     if len(new_arr)>=3:
         nnn=new_arr[-1]*new_arr[-2]*new_arr[-3]
+    elif len(new_arr)==1:
+        nnn=new_arr[0]*arr[-1]*arr[-2]
+
 print(max(ppp,pnn,nnn))
