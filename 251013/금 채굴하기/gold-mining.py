@@ -16,7 +16,7 @@ def casek(i, j, k):
 
 for i in range(n):
     for j in range(n):
-        for k in range((n + 1) // 2):
+        for k in range(n):
             ans = max(ans, casek(i, j, k))
 
 print(ans)
