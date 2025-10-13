@@ -7,16 +7,17 @@ def casek(i, j, k):
     for a in range(i - k, i + k + 1):
         for b in range(j - k, j + k + 1):
             if 0 <= a < n and 0 <= b < n:
-                if i + j - k <= a + b <= i + j + k:
+                if abs(a - i) + abs(b - j) <= k:
                     if grid[a][b] == 1:
                         cnt += 1
-    if 0 < (cnt * m - (k**2 + (k+1)**2)):
+    cost = k * k + (k + 1) * (k + 1)
+    if cnt * m >= cost:
         return cnt
     return 0
 
 for i in range(n):
     for j in range(n):
-        for k in range(n):
+        for k in range(n + 1):
             ans = max(ans, casek(i, j, k))
 
 print(ans)
