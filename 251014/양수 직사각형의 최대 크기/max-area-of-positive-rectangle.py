@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
-ans=0
+ans=-1
 
 def positive(x1,y1,x2,y2):
     numpos=True
@@ -14,7 +14,7 @@ def positive(x1,y1,x2,y2):
     if numpos==True:
         return cnt
     else:
-        return 0
+        return -1
         
 
 for x1 in range(n):
