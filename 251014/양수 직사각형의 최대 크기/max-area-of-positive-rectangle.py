@@ -7,7 +7,7 @@ def positive(x1,y1,x2,y2):
     cnt=0
     for i in range(x1,x2+1):
         for j in range(y1,y2+1):
-            if grid[i][j]<0:
+            if grid[i][j]<=0:
                 numpos=False
             else:
                 cnt+=1
