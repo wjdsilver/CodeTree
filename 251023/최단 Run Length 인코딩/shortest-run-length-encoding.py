@@ -1,5 +1,5 @@
 A = input()
-ans=len(A)
+ans=len(A)*2
 
 def shift(A):
     A=A[-1]+A[:-1]
@@ -34,4 +34,3 @@ for i in range(len(A)):
     ans=min(ans,RLE(A))
 
 print(ans)
-
