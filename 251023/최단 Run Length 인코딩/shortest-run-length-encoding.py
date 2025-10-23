@@ -3,7 +3,7 @@ ans=len(A)*2
 
 def shift(A):
     A=A[-1]+A[:-1]
-    return A[-1]+A[:-1]
+    return A
 
 def RLE(A):
     result=[]
@@ -30,7 +30,6 @@ def RLE(A):
     return len(result)
 
 for i in range(len(A)):
-    shift(A)
-    ans=min(ans,RLE(A))
+    ans=min(ans,RLE(shift(A)))
 
 print(ans)
