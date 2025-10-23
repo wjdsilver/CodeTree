@@ -21,7 +21,7 @@ def RLE(A):
                 result.append(cnt%10)
             cnt=1
     if cnt==len(A):
-        result.append(A[i])
+        result.append(A[0])
         if 10>cnt:
             result.append(cnt)
         else:
