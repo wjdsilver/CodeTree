@@ -28,6 +28,10 @@ while seq:
     if not exploded:
         seq = False
         break
+        
+    if all(v == 0 for v in numbers):
+        numbers = []
+        break
 
     newnumbers = [v for v in numbers if v != 0]
     newnumbers += [0] * (n - len(newnumbers))
