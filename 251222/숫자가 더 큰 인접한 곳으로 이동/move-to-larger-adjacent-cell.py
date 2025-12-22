@@ -8,7 +8,7 @@ for i in range(1, n + 1):
         a[i][j] = row[j - 1]
 
 def inRange(x, y):
-    return 0 <= x < n and 0 <= y < n
+    return 0 <= x <= n and 0 <= y <= n
 
 dxs=[-1,1,0,0]
 dys=[0,0,-1,1]
@@ -35,6 +35,3 @@ while True:
         break   # 더 큰 숫자가 없으면 종료
 
     curr_x, curr_y = max_x, max_y
-    
-
-
