@@ -13,6 +13,8 @@ for i in range(n):
         r=i-1
         break
 
+if blank==True:
+    r=n-1
 
 for x in range (m):
     grid[r][k-1+x]=1
