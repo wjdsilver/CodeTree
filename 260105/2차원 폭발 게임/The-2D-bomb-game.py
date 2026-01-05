@@ -2,6 +2,13 @@ n, m, k = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 ans=0
 
+def is_empty():
+    for row in grid:
+        for v in row:
+            if v != 0:
+                return False
+    return True
+
 def turn_grid():#회전
     global grid
     new_grid = [[0]*n for _ in range(n)]
@@ -29,10 +36,14 @@ def bomb():
 
     for j in range(n):
         cnt=1
+        if is_empty():
+            ans=0
+            break
+
         for i in range(1,n):
             if grid[i][j] != 0 and grid[i][j] == grid[i-1][j]:#같은 값 연달아 몇개인지 갯수 세기
                 cnt+=1
-
+            
             else:
                 if cnt>=m:#m개 이상의 같은 숫자가 있는 경우
                     exploded = True
@@ -44,7 +55,6 @@ def bomb():
             exploded = True
             for k in range(cnt):
                 grid[n-1-k][j] = 0
-
     return exploded                 
 
 for _ in range(k):#터지고 회전하는것을 k번 반복함
@@ -59,4 +69,5 @@ for row in grid:#남은 폭탄의 수 구하기
     for elem in row:
         if elem!=0:
             ans+=1
+
 print(ans)
