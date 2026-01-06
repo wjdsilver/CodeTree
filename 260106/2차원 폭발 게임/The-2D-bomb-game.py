@@ -2,12 +2,6 @@ n, m, k = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 ans=0
 
-def is_empty():
-    for row in grid:
-        for v in row:
-            if v != 0:
-                return False
-    return True
 
 def turn_grid():#회전
     global grid
@@ -36,9 +30,6 @@ def bomb():
 
     for j in range(n):
         cnt=1
-        if is_empty():
-            ans=0
-            break
 
         for i in range(1,n):
             if grid[i][j] != 0 and grid[i][j] == grid[i-1][j]:#같은 값 연달아 몇개인지 갯수 세기
