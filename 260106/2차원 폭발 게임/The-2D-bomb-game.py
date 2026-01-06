@@ -1,7 +1,7 @@
 n, m, k = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 ans=0
-
+active_cols = range(n)
 
 def turn_grid():#회전
     global grid
@@ -24,11 +24,10 @@ def fall(cols):#해당하는 줄들에 중력 작용
         for k in range(len(tmp)):# 아래부터 채우기
             grid[n-1-k][j] = tmp[-1-k]
 
-def bomb():
-    global grid
+def bomb(cols):
     exploded_cols = set()
 
-    for j in range(n):
+    for j in cols:
         cnt=1
 
         for i in range(1,n):
@@ -37,27 +36,39 @@ def bomb():
             
             else:
                 if cnt>=m:#m개 이상의 같은 숫자가 있는 경우
+                    changed = False
                     for k in range(cnt):
-                        grid[i-k-1][j]=0
-                    exploded_cols.add(j)
+                        if grid[i-k-1][j] != 0:
+                            grid[i-k-1][j] = 0
+                            changed = True
+                    if changed:
+                        exploded_cols.add(j)
                 cnt=1 
 
         if cnt >= m:
+            changed = False
             for k in range(cnt):
-                grid[n-1-k][j] = 0
-            exploded_cols.add(j)
+                if grid[n-1-k][j] != 0:
+                    grid[n-1-k][j] = 0
+                    changed = True
+            if changed:
+                exploded_cols.add(j)
     return exploded_cols                 
 
 for _ in range(k):#터지고 회전하는것을 k번 반복함
     while True:
-        cols=bomb()#연쇄 폭발
+        cols=bomb(active_cols)#연쇄 폭발
         if not cols:
             break
         fall(cols)
     turn_grid()
-    fall(range(n))
-while bomb():#연쇄 폭발
-    fall(range(n))
+    active_cols = range(n)
+    fall(active_cols)
+while True:#마지막에 한번더 연쇄 폭발
+    cols = bomb(range(n))
+    if not cols:
+        break
+    fall(cols)
 
 for row in grid:#남은 폭탄의 수 구하기
     for elem in row:
