@@ -45,7 +45,7 @@ def test():
                             newgrid[i][j] = grid[i][j]
                         else:
                             newgrid[i][j] = 0
-                    if inRange(ni, nj, n):
+                    else:
                         if newgrid[ni][nj] == 0:
                             newgrid[ni][nj] = grid[i][j]
                         else:
