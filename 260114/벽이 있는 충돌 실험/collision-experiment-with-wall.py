@@ -26,28 +26,31 @@ def test():
     
     #M개의 구슬에 대하여
     for i in range(m):
-        grid[x[i]][y[i]]=i+1#몇번째 구슬인지
+        grid[x[i]][y[i]]=i+1 #몇번째 구슬이 위치에 있는지
     for _ in range(2*n):
-        newgrid=[[0]*n for _ in range(n)]
+        newgrid = [[0]*n for _ in range(n)]
+        cntgrid = [[0]*n for _ in range(n)]
+
         for i in range(n):
             for j in range(n):
                 if grid[i][j] == 0:
                     continue
+
                 idx = grid[i][j] - 1
-
-                ni = i + r[idx] 
+                ni = i + r[idx]
                 nj = j + c[idx]
-
 
                 if not inRange(ni, nj, n):
                     r[idx] *= -1
                     c[idx] *= -1
-                    ni,nj=i,j
-                if newgrid[ni][nj] == 0:
+                    ni, nj = i, j
+
+                cntgrid[ni][nj] += 1
+                if cntgrid[ni][nj] == 1:
                     newgrid[ni][nj] = grid[i][j]
                 else:
                     newgrid[ni][nj] = 0
-    
+
         grid = newgrid
     cnt=0
     for i in range(n):
