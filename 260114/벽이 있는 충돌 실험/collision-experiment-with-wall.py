@@ -1,3 +1,4 @@
+#3개 이상의 구슬이 한자리에 모이는 경우도 고려해야함!
 T = int(input())
 
 def inRange(x,y,n):
