@@ -27,7 +27,7 @@ def test():
     #M개의 구슬에 대하여
     for i in range(m):
         grid[x[i]][y[i]]=i+1#몇번째 구슬인지
-    for _ in range(4*n):
+    for _ in range(2*n):
         newgrid=[[0]*n for _ in range(n)]
         for i in range(n):
             for j in range(n):
