@@ -31,25 +31,22 @@ def test():
         newgrid=[[0]*n for _ in range(n)]
         for i in range(n):
             for j in range(n):
-                if grid[i][j] > 0:
-                    idx = grid[i][j] - 1
+                if grid[i][j] == 0:
+                    continue
+                idx = grid[i][j] - 1
 
-                    ni = i + r[idx] 
-                    nj = j + c[idx]
+                ni = i + r[idx] 
+                nj = j + c[idx]
 
 
-                    if not inRange(ni, nj, n):
-                        r[idx] *= -1
-                        c[idx] *= -1
-                        if newgrid[i][j] == 0:
-                            newgrid[i][j] = grid[i][j]
-                        else:
-                            newgrid[i][j] = 0
-                    else:
-                        if newgrid[ni][nj] == 0:
-                            newgrid[ni][nj] = grid[i][j]
-                        else:
-                            newgrid[ni][nj] = 0
+                if not inRange(ni, nj, n):
+                    r[idx] *= -1
+                    c[idx] *= -1
+                    ni,nj=i,j
+                if newgrid[ni][nj] == 0:
+                    newgrid[ni][nj] = grid[i][j]
+                else:
+                    newgrid[ni][nj] = 0
     
         grid = newgrid
     cnt=0
