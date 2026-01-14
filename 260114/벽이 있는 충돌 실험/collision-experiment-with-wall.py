@@ -34,19 +34,23 @@ def test():
                 if grid[i][j] > 0:
                     idx = grid[i][j] - 1
 
-                    ni = i + r[idx]
+                    ni = i + r[idx] 
                     nj = j + c[idx]
+
 
                     if not inRange(ni, nj, n):
                         r[idx] *= -1
                         c[idx] *= -1
-                        ni = i + r[idx]
-                        nj = j + c[idx]
-
-                    if newgrid[ni][nj] == 0:
-                        newgrid[ni][nj] = grid[i][j]
-                    else:
-                        newgrid[ni][nj] = 0
+                        if newgrid[i][j] == 0:
+                            newgrid[i][j] = grid[i][j]
+                        else:
+                            newgrid[i][j] = 0
+                    if inRange(ni, nj, n):
+                        if newgrid[ni][nj] == 0:
+                            newgrid[ni][nj] = grid[i][j]
+                        else:
+                            newgrid[ni][nj] = 0
+    
         grid = newgrid
     cnt=0
     for i in range(n):
