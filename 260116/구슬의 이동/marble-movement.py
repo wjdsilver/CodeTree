@@ -72,5 +72,4 @@ def test():
 n, m, t, k = map(int, input().split())
 x, y, v, dr, dc = [], [], [], [], [] #r과 c는 d인풋을 바탕으로 이동하는 방향에 따른 위치 저장한거
     
-for _ in range(t):
-    print(test())
+print(test())
