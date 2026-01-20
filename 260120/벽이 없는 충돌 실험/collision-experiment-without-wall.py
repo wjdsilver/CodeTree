@@ -25,13 +25,10 @@ for _ in range(T): #각 테스트케이스마다
     for _ in range(4000):
         if len(x) <= 1:
             break
-        #이동 전 구슬 위치 정보 저장
-        prev = [(x[i], y[i]) for i in range(len(x))]
         #모든 구슬 이동
         for i in range(len(x)):
             x[i]+=dr[i]
             y[i]+=dc[i]
-        pos=[(x[i],y[i])for i in range(len(x))]
         t+=1
         #지울거 목록
         to_remove = set() 
@@ -40,7 +37,7 @@ for _ in range(T): #각 테스트케이스마다
                 if i in to_remove or j in to_remove:
                     continue
 
-                if pos[i]==pos[j]: 
+                if x[i]==x[j] and y[i]==y[j]: 
                     if w[i]>w[j]: 
                         to_remove.add(j)
                         ans=t 
