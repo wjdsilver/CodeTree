@@ -9,8 +9,8 @@ for _ in range(T): #각 테스트케이스마다
     #N개의 구슬의 좌표, 무게, 이동방향
     for i in range(N):
         xi, yi, wi, di = input().split()
-        x.append(int(xi))
-        y.append(int(yi))
+        x.append(int(xi)*2)
+        y.append(int(yi)*2)
         w.append(int(wi))
         idx.append(i)
         if di == "U":
@@ -32,11 +32,14 @@ for _ in range(T): #각 테스트케이스마다
             x[i]+=dr[i]
             y[i]+=dc[i]
         pos=[(x[i],y[i])for i in range(len(x))]
-        t+=2
+        t+=1
         #지울거 목록
         to_remove = set() 
         for i in range(len(x) - 1): 
             for j in range(i + 1, len(x)): 
+                if i in to_remove or j in to_remove:
+                    continue
+
                 if pos[i]==pos[j]: 
                     if w[i]>w[j]: 
                         to_remove.add(j)
@@ -62,6 +65,7 @@ for _ in range(T): #각 테스트케이스마다
         w  = [w[i] for i in alive]
         dr = [dr[i] for i in alive]
         dc = [dc[i] for i in alive]
+        idx = [idx[i] for i in alive]
     
 
     print(ans)
