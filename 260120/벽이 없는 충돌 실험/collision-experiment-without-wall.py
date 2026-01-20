@@ -22,7 +22,7 @@ for _ in range(T): #각 테스트케이스마다
         elif di == "R":
             dr.append(1); dc.append(0)
 
-    for _ in range(100):
+    for _ in range(5000):
         if len(x) <= 1:
             break
         #이동 전 구슬 위치 정보 저장
