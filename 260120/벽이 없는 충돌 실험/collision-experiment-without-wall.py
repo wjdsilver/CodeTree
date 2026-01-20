@@ -48,15 +48,6 @@ for _ in range(T): #각 테스트케이스마다
                     elif w[i]<=w[j]: 
                         to_remove.add(i) 
                         ans=t 
-                #스왑 
-                elif prev[i]==pos[j] and prev[j]==pos[i]: 
-                    if w[i]>w[j]: 
-                        to_remove.add(j)
-                        ans=t
-                        #무게 같으면 번호 큰 j남음+ 
-                    elif w[i]<=w[j]: 
-                        to_remove.add(i) 
-                        ans=t
 
         alive = [i for i in range(len(x)) if i not in to_remove]
 
