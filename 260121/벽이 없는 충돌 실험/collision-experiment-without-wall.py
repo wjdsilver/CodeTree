@@ -1,4 +1,5 @@
 #구슬의 번호와 무게 주어짐. 2초에 한칸씩 이동
+#각 테스트 케이스마다 모든 구슬을 보면 시간이 너무 많이 걸림... 
 T = int(input())#총 테스트케이스
 
 for _ in range(T): #각 테스트케이스마다
@@ -7,6 +8,9 @@ for _ in range(T): #각 테스트케이스마다
     winner =0
     N = int(input()) #구슬 개수
     x, y, w, dr, dc, idx = [], [], [], [], [], [] #좌표, 무게, 방향
+    alive = [True] * N
+    alive_cnt = N
+
     #N개의 구슬의 좌표, 무게, 이동방향
     for i in range(N):
         xi, yi, wi, di = input().split()
@@ -24,21 +28,23 @@ for _ in range(T): #각 테스트케이스마다
             dr.append(1); dc.append(0)
     testtime=max(x)-min(x)+max(y)-min(y)
     for _ in range(testtime):
-        if len(x) <= 1:
+        if alive_cnt <= 1:
             break
         #모든 구슬 이동
-        for i in range(len(x)):
-            x[i]+=dr[i]
-            y[i]+=dc[i]
-        pos=[(x[i],y[i])for i in range(len(x))]
+        for i in range(N):
+            if alive[i]:
+                x[i] += dr[i]
+                y[i] += dc[i]
         t+=1
-        #지울거 목록
-        to_remove = set() 
         pos_dict = {}
-        for i in range(len(x)):
-            if pos[i] not in pos_dict:
-                pos_dict[pos[i]] = []
-            pos_dict[pos[i]].append(i)
+        for i in range(N):
+            if not alive[i]:
+                continue
+            p = (x[i], y[i])
+            if p not in pos_dict:
+                pos_dict[p] = []
+            pos_dict[p].append(i)
+
         for group in pos_dict.values(): 
             if len(group) >= 2: 
                 ans = t 
@@ -47,17 +53,10 @@ for _ in range(T): #각 테스트케이스마다
                     if w[i] > w[winner] or (w[i] == w[winner] and idx[i] > idx[winner]): 
                         winner = i 
                 for i in group: 
-                    if i != winner:
-                        to_remove.add(i)
-
-        alive = [i for i in range(len(x)) if i not in to_remove]
-
-        x  = [x[i] for i in alive]
-        y  = [y[i] for i in alive]
-        w  = [w[i] for i in alive]
-        dr = [dr[i] for i in alive]
-        dc = [dc[i] for i in alive]
-        idx = [idx[i] for i in alive]
+                    if i != winner and alive[i]:
+                        alive[i] = False
+                        alive_cnt -= 1
+         
     
 
     print(ans)
