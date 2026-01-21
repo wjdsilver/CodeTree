@@ -22,8 +22,8 @@ for _ in range(T): #각 테스트케이스마다
             dr.append(-1); dc.append(0)
         elif di == "R":
             dr.append(1); dc.append(0)
-
-    for _ in range(4000):
+    testtime=max(x)-min(x)+max(y)-min(y)
+    for _ in range(testtime):
         if len(x) <= 1:
             break
         #모든 구슬 이동
