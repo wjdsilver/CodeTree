@@ -30,12 +30,13 @@ def test():
     for x in range(len(r)):
         nr = r[x] + dr[x]
         nc = c[x] + dc[x]
-        if inRange(nr,nc,n):
-            r[x]=nr
-            c[x]=nc
         if not inRange(nr,nc,n):
             dr[x] *= -1
             dc[x] *= -1
+        else:
+            r[x]=nr
+            c[x]=nc
+        
 
     # 좌표별로 모으기
     pos={}
@@ -50,10 +51,7 @@ def test():
     # 충돌 처리
     for group in pos.values():
         if len(group) >= 2:
-            winner = group[0]
-            for i in group[1:]:
-                if w[i] > w[winner]:
-                    winner = i
+            winner = group[-1]
 
             total = 0
             for i in group:
